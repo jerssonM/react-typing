@@ -1,0 +1,18 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "extends": [
+    "airbnb",
+    "prettier",
+    "prettier/react",
+    "plugin:jest/recommended"
+],
+  "plugins": ["react", "jest"],
+  "parser":"babel-eslint",
+  "rules": {
+    "quotes": [2, "single", "avoid-escape"],
+    "jsx-quotes": [2, "prefer-single"]
+  }
+}

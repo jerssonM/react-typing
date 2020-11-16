@@ -1,0 +1,49 @@
+{
+  "name": "react-typing-component",
+  "version": "1.0.0",
+  "description": "React component for typing",
+  "main": "dist/index.js",
+  "browser": "dist/react-typing-component.umd.js",
+  "module": "dist/react-typing-component.es.js",
+  "repository": "https://github.com/jerssonM/react-typing",
+  "author": "JerssonM",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "test": "jest",
+    "test-coverage": "jest --coverage",
+    "lint": "eslint src/**/*.js",
+    "build": "rollup -c"
+  },
+  "peerDependencies": {
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "styled-components": "^5.2.1"
+  },
+  "dependencies": {
+    "faker": "^5.1.0",
+    "prop-types": "^15.7.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-react": "^7.9.4",
+    "@rollup/plugin-alias": "^3.1.1",
+    "@rollup/plugin-node-resolve": "^8.0.1",
+    "babel-plugin-styled-components": "^1.10.7",
+    "babel-eslint": "^10.1.0",
+    "babel-jest": "^26.6.3",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.5",
+    "eslint-config-airbnb": "^18.1.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-jest": "^24.1.3",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.21.5",
+    "jest": "^26.6.3",
+    "prettier": "^2.1.2",
+    "rollup": "^2.33.2",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-terser": "^6.1.0"
+  }
+}
