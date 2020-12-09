@@ -6,7 +6,8 @@
       {
         "displayName": false
       }
-    ]
+    ],
+    "@babel/plugin-proposal-optional-chaining",
   ]
 }
 

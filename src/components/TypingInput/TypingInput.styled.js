@@ -23,7 +23,7 @@ export const StyledText = styled.p`
   font-size: 24px;
   font-weight: bold;
   text-align: justify;
-  letter-spacing: 4px;
+  margin: 0;
 
   @keyframes blink {
     0% {

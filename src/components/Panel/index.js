@@ -1,29 +1,33 @@
 import faker from 'faker';
 import React, { useState, useEffect } from 'react';
 
+import {
+  StyledBoard,
+  StyledIconText,
+  StyledButtonReload
+} from './Panel.styled';
 import TypingInput from '../TypingInput';
-import { StyledBoard } from './Panel.styled';
 import { propTypes, defaultProps } from './propTypes';
 
-const Panel = ({ customText }) => {
+const Panel = ({ customText, reloadText, reloadButtonPosition }) => {
   const [errorsList, setErrorsList] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [text, setText] = useState(faker.random.words(200));
   const [currentCaracter, setCurrentCaracter] = useState(null);
+  const [localText, setLocalText] = useState(faker.random.words(200));
+
+  const text = customText || localText;
+  const onReloadText = reloadText || reloadLocalText;
 
   useEffect(() => {
     document.addEventListener('keypress', onKeyPress);
+    return () => {
+      document.removeEventListener('keypress', () => {});
+    };
   }, []);
 
   useEffect(() => {
-    if (customText && customText !== text) {
-      setText(customText);
-    }
-  }, [customText]);
-
-  useEffect(() => {
     if (currentCaracter !== null) {
-      if (currentCaracter === text[currentIndex]) {
+      if (currentCaracter.key === text[currentIndex]) {
         setCurrentIndex(currentIndex + 1);
       } else {
         const lastError = errorsList.length - 1;
@@ -34,12 +38,27 @@ const Panel = ({ customText }) => {
     }
   }, [currentCaracter]);
 
-  function onKeyPress(event) {
-    setCurrentCaracter(event.key);
+  function onKeyPress({ key: currentKey }) {
+    const repeatKey =
+      currentKey === currentCaracter?.key ? currentCaracter?.position + 1 : 0;
+    setCurrentCaracter({ key: currentKey, repeat: repeatKey });
+  }
+
+  function reloadLocalText() {
+    setErrorsList([]);
+    setCurrentIndex(0);
+    setCurrentCaracter(null);
+    setLocalText(faker.random.words(200));
   }
 
   return (
     <StyledBoard>
+      <StyledButtonReload
+        onClick={onReloadText}
+        position={reloadButtonPosition}
+      >
+        <StyledIconText>⟳</StyledIconText>
+      </StyledButtonReload>
       <TypingInput errorsList={errorsList} currentIndex={currentIndex}>
         {text}
       </TypingInput>
