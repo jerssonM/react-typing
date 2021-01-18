@@ -1,11 +1,10 @@
 import React from 'react';
-import Panel from './components/Panel';
-import { propTypes, defaultProps } from './components/Panel/propTypes';
+import GlobalFonts from './fonts';
+import TypingComponent from './components/TypingComponent';
 
-const TypingComponent = ({ ...props }) => <Panel {...props} />;
-
-Panel.propTypes = { ...propTypes };
-
-Panel.defaultProps = { ...defaultProps };
-
-export default TypingComponent;
+export default (props) => (
+  <>
+    <GlobalFonts />
+    <TypingComponent {...props} />
+  </>
+);

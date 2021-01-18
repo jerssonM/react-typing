@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useMemo } from 'react';
+import React, { memo, useMemo } from 'react';
 
 import {
   StyledText,
@@ -7,7 +7,7 @@ import {
   StyledTypingInput
 } from './TypingInput.styled';
 
-const TypingInput = ({ children, errorsList, currentIndex }) => {
+const TypingInput = memo(({ children, errorsList, currentIndex }) => {
   const textIndex = currentIndex + 1;
   const unwrittedText = children.slice(textIndex, children.length);
   const writtedTextArray = Array.from(children.slice(0, textIndex));
@@ -35,7 +35,7 @@ const TypingInput = ({ children, errorsList, currentIndex }) => {
       </StyledText>
     </StyledTypingInput>
   );
-};
+});
 
 TypingInput.propTypes = {
   children: PropTypes.string.isRequired,

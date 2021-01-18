@@ -8,7 +8,7 @@ export const StyledIconText = styled.span`
   border-radius: 50%;
   font-size: 24px;
   font-weight: bold;
-  padding: 4px;
+  padding: 4px 8px;
   &:hover {
     cursor: pointer;
     background-color: lightgray;
@@ -20,3 +20,5 @@ export const StyledButtonReload = styled.div`
   justify-content: ${({ position }) => position};
   padding: 10px 0;
 `;
+
+export const StyledRestoreText = styled.p``;
