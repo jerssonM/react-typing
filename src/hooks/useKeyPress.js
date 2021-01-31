@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 const useKeyPress = () => {
-  const [currentCaracter, setCurrentCaracter] = useState(null);
+  const [keyInfo, setKeyInfo] = useState(null);
 
   useEffect(() => {
     document.addEventListener('keypress', onKeyPress);
@@ -11,12 +11,11 @@ const useKeyPress = () => {
   }, []);
 
   function onKeyPress({ key: currentKey }) {
-    const repeatedKey =
-      currentKey === currentCaracter?.key ? currentCaracter?.position + 1 : 0;
-    setCurrentCaracter({ key: currentKey, repeat: repeatedKey });
+    const repeatedKey = currentKey === keyInfo?.key ? keyInfo?.position + 1 : 0;
+    setKeyInfo({ key: currentKey, repeat: repeatedKey });
   }
 
-  return [currentCaracter, setCurrentCaracter];
+  return [keyInfo, setKeyInfo];
 };
 
 export default useKeyPress;

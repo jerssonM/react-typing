@@ -7,15 +7,16 @@
     "airbnb",
     "prettier",
     "prettier/react",
-    "eslint:recommended",
-    "plugin:jest/recommended"
+    "eslint:recommended"
 ],
-  "plugins": ["react", "jest"],
+  "plugins": ["react"],
   "parser":"babel-eslint",
   "rules": {
     "quotes": [2, "single", "avoid-escape"],
-    "no-undef": "warn",
+    "no-undef": "error",
     "jsx-quotes": [2, "prefer-single"],
-    "no-unused-vars": [2, {"args": "all", "argsIgnorePattern": "^_"}]
+    "no-unused-vars": [2, {"args": "all", "argsIgnorePattern": "^_"}],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "no-use-before-define": ["error", {"functions": false}]
   }
 }
